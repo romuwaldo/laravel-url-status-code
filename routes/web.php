@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\URLController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [URLController::class, "createForm"]);
+Route::post('/store', [URLController::class, "store"]);
+Route::get('/list', [URLController::class, "list"]);
